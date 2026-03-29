@@ -7,8 +7,7 @@ import rclpy
 from rclpy.node import Node
 
 
-servo_ids_gan = [0, 3]
-
+servo_ids_gan = [0,1,2,3]
 
 class Motor:
     def __init__(self, servo_ids=[0], port="/dev/ttyUSB0"):
@@ -116,7 +115,7 @@ class ServoNode(Node):
         print("initial angles (deg):", self.initial_angles)
 
         # different offsets per motor
-        self.offsets = np.array([1.5, 5.0])   # motor 0: ±5°, motor 3: ±3°
+        self.offsets = np.array([1.5,2.0,2.0,1.5])   # motor 0: ±5°, motor 3: ±3°
         self.freq = 0.5
 
         self.timer = self.create_timer(0.05, self.control_loop)
@@ -125,8 +124,13 @@ class ServoNode(Node):
         t = time.time()
 
         delta = self.offsets * np.sin(2 * np.pi * self.freq * t)
-        bias = np.array([0, 4.0])
-        target_angles = self.initial_angles + delta + bias
+        delta[0] = 0.0
+        delta[1] = 0.0
+        delta[2] = 0.0
+        # delta[1] = 0.0
+        bias = np.array([0,0,0,1.0])
+        target_angles = self.initial_angles + delta  + bias
+        # + bias
 
         self.motor.set_positions(target_angles)
 
