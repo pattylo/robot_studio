@@ -6,7 +6,7 @@ import serial
 import rclpy
 from rclpy.node import Node
 
-
+ 
 servo_ids_gan = [0,1,2,3]
 
 class Motor:
