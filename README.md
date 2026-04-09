@@ -9,6 +9,14 @@ A bipedal robot project featuring **Rockie**, a compact walking robot built with
   <img src="script/walker_.gif" alt="Walker Demo" width="400"/>
 </div>
 
+### Video Demo
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=LOdnpjSW9wg">
+    <img src="https://img.youtube.com/vi/LOdnpjSW9wg/maxresdefault.jpg" alt="Rockie Robot Video Demo" width="600"/>
+  </a>
+</div>
+
 ## Overview
 
 This project focuses on achieving stable bipedal locomotion in a small-form-factor platform. Key features include:
