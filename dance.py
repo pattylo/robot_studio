@@ -115,8 +115,8 @@ class ServoNode(Node):
         print("initial angles (deg):", self.initial_angles)
 
         # different offsets per motor
-        self.offsets = np.array([1.5,5.0,7.0,1.5])   # motor 0: ±5°, motor 3: ±3°
-        self.freq = 1.6
+        self.offsets = np.array([1.5,1.0,1.0,1.5])   # motor 0: ±5°, motor 3: ±3°
+        self.freq = 0.5
 
         self.timer = self.create_timer(0.05, self.control_loop)
 
